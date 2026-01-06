@@ -48,7 +48,7 @@ public class LandingPageActions {
 
     }
 
-    public void verifyaddtocartbtn(String itemlist){
+    public void verifyaddtocartbtn(String itemlist) throws InterruptedException {
 
         List<WebElement> itemList = driver.findElements(By.xpath("//div[@class='inventory_item_name '] "));
         List<String> actualitem = new ArrayList<>();
@@ -56,7 +56,12 @@ public class LandingPageActions {
             String item =element.getText();
             if (itemlist.equals(item)){
                 System.out.println("value matched");
-                driver.findElement(Cartbtn).click();
+                //driver.findElement(Cartbtn).click();
+                WebElement ele = driver.findElement(By.xpath("//button[@name='add-to-cart-sauce-labs-backpack']"));
+                if(ele.isDisplayed()){
+                    ele.click();
+                }
+
             }
         }
     }
@@ -66,6 +71,7 @@ public class LandingPageActions {
         Select select = new Select(dropdownElement);
         select.selectByVisibleText(drpdwn);
         Thread.sleep(2000);
+
     }
 
 }

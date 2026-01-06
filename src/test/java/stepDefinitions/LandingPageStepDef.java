@@ -45,9 +45,11 @@ public class LandingPageStepDef {
         landingPageActions.verifyMenuLinks(expectedLinks);
     }
 
-    @Then("user click on Add to cart button for {string}")
-    public void user_click_on_add_to_cart_button_for(String item) {
+
+    @Then("User click on Add to cart button for {string}")
+    public void user_click_on_add_to_cart_button_for(String item) throws InterruptedException {
         landingPageActions.verifyaddtocartbtn(item);
+
     }
 
     @When("user selects dropdown from {string}")

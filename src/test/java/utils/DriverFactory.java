@@ -10,6 +10,7 @@ import org.openqa.selenium.safari.SafariDriver;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Map;
 import java.util.Properties;
 
 public class DriverFactory {
@@ -30,10 +31,24 @@ public class DriverFactory {
         //condition ? value_if_true: value_if_false
 
         if(driver == null) {
+
             if(browser.equalsIgnoreCase("chrome")) {
-                //WebDriverManager.chromedriver().setup();
-                ChromeOptions chromeOptions = new ChromeOptions();
+
+                ChromeOptions options = new ChromeOptions();
+                // Disable Chrome password manager & security popups
+                options.addArguments("--disable-notifications");
+                options.addArguments("--disable-infobars");
+                options.addArguments("--disable-save-password-bubble");
+                options.addArguments("--disable-popup-blocking");
+                options.setExperimentalOption("excludeSwitches",
+                        new String[]{"enable-automation", "load-extension"});
+                options.setExperimentalOption("prefs", Map.of(
+                        "credentials_enable_service", false,
+                        "profile.password_manager_enabled", false
+                ));
+
                 driver = new ChromeDriver();
+
 
                 //Initializes the WebDriver instance
 

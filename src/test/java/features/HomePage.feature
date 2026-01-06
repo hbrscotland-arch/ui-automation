@@ -13,10 +13,18 @@ Feature: Swag Labs
       | About           |
       | Logout          |
       | Reset App State |
-    When user selects dropdown from "Name (A to Z)"
-    Then user click on Add to cart button for "Sauce Labs Backpack"
+    When user selects dropdown from "Price (high to low)"
+    Then User click on Add to cart button for "Sauce Labs Backpack"
+    Then User click on cart link icon
+    Then User clicks on Checkout button
+    When User enters "<Firstname>" in firstname textbox field
+    When User enters "<Lastname>" in lastname textbox field
+    When User enters "<Postcode>" in postcode textbox field
+    And User clicks on continue button
+    And User clicks on finish button
+    Then User verify success message
 
     Examples:
-      | Username      | Password     |
-      | standard_user | secret_sauce |
+      | Username      | Password     | Firstname | Lastname | Postcode |
+      | standard_user | secret_sauce | first     | last     | 12345    |
 
