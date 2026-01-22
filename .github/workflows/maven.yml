@@ -9,7 +9,7 @@ on:
 
 jobs:
   ui-tests:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
       - name: Checkout repository
@@ -22,16 +22,13 @@ jobs:
           java-version: '17'
           cache: maven
 
-      - name: Install Google Chrome
-        uses: browser-actions/setup-chrome@v1
+      - name: Verify SafariDriver
+        run: safaridriver --version
 
-      - name: Verify Chrome installation
-        run: google-chrome --version
-
-      - name: Run UI tests
+      - name: Run UI tests on Safari
         run: mvn clean test
         env:
-          HEADLESS: true
+          BROWSER: safari
 
       - name: Upload Cucumber Reports
         if: always()
