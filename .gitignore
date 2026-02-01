@@ -5,3 +5,4 @@ target/generated-*/
 target/maven-status/
 target/test-classes
 test-output/
+test-output/.DS_Store

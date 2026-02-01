@@ -6,6 +6,8 @@ on:
   pull_request:
     branches: [ main, develop ]
   workflow_dispatch:
+  schedule:
+    - cron: '0 19 * * *'   # runs daily at 7:00 PM GMT
 
 jobs:
   ui-tests:

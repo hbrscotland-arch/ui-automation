@@ -21,13 +21,12 @@ public class CartPageActions {
 
      public void cartlink() throws InterruptedException {
          driver.findElement(Cartlink).click();
-         Thread.sleep(2000);
+         //Thread.sleep(2000);
      }
 
      public void checkoutcart() throws InterruptedException {
       driver.findElement(Checkoutbtn).click();
-      Thread.sleep(2000);
-
+      //Thread.sleep(2000);
      }
 
  public void firstNamefield(String fname) { driver.findElement(FirstNametxtBox).sendKeys(fname);}
@@ -41,19 +40,17 @@ public class CartPageActions {
 
  public void Continue() throws InterruptedException {
       driver.findElement(Continuebtn).click();
-      Thread.sleep(2000);
+     // Thread.sleep(2000);
  }
 
  public void finish() throws InterruptedException {
        driver.findElement(Finishbtn).click();
-       Thread.sleep(2000);
+      // Thread.sleep(2000);
  }
 
 public void verifyMessage(String ExpectedMsg) throws InterruptedException {
       String actualmsg = driver.findElement(msgTxt).getText();
       Assert.assertEquals(actualmsg,ExpectedMsg);
-      Thread.sleep(2000);
-
-}
-
+     // Thread.sleep(2000);
+     }
 }

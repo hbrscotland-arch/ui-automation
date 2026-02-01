@@ -29,30 +29,33 @@ public class checkoutPageStepDef {
     @When("User enters {string} in firstname textbox field")
     public void user_enters_in_firstname_textbox_field(String firstname) throws InterruptedException {
         cartPageActions.firstNamefield(firstname);
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
     }
+
     @When("User enters {string} in lastname textbox field")
     public void user_enters_in_lastname_textbox_field(String lastname) throws InterruptedException {
        cartPageActions.lastNamefield(lastname);
-       Thread.sleep(2000);
+      // Thread.sleep(2000);
     }
+
     @When("User enters {string} in postcode textbox field")
     public void user_enters_in_postcode_textbox_field(String postcode) throws InterruptedException {
         cartPageActions.postalcodefield(postcode);
-        Thread.sleep(2000);
+       // Thread.sleep(2000);
     }
+
     @When("User clicks on continue button")
     public void user_clicks_on_continue_button() throws InterruptedException {
         cartPageActions.Continue();
     }
+
     @When("User clicks on finish button")
     public void user_clicks_on_finish_button() throws InterruptedException {
         cartPageActions.finish();
     }
+
     @Then("User verify success message")
     public void user_verify_success_message() throws InterruptedException {
         cartPageActions.verifyMessage("Thank you for your order!");
     }
-
-
 }

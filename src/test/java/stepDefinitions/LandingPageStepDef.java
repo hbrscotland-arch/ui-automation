@@ -24,11 +24,9 @@ public class LandingPageStepDef {
         this.signinPageActions = testContextSetup.pageObjectManager.getSigninPortalPage();
     }
 
-
     @Given("I want to launch Url of the application")
     public void i_want_to_launch_url_of_the_application() throws IOException {
         System.out.println("User in Landing Page");
-
     }
 
     @Then("the page title should be {string}")
@@ -45,16 +43,13 @@ public class LandingPageStepDef {
         landingPageActions.verifyMenuLinks(expectedLinks);
     }
 
-
     @Then("User click on Add to cart button for {string}")
     public void user_click_on_add_to_cart_button_for(String item) throws InterruptedException {
         landingPageActions.verifyaddtocartbtn(item);
-
     }
 
     @When("user selects dropdown from {string}")
     public void user_selects_dropdown_from(String drpdwn) throws InterruptedException {
         landingPageActions.verifydropdwnvalues(drpdwn);
     }
-
 }
